@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Will\\Desktop\\Unity Projects\\ASC Mandatory Assignment\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj": {}
+    "C:\\Users\\Will\\Desktop\\Unity Projects\\Repos\\Unity2D\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Will\\Desktop\\Unity Projects\\ASC Mandatory Assignment\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj": {
+    "C:\\Users\\Will\\Desktop\\Unity Projects\\Repos\\Unity2D\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Will\\Desktop\\Unity Projects\\ASC Mandatory Assignment\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj",
+        "projectUniqueName": "C:\\Users\\Will\\Desktop\\Unity Projects\\Repos\\Unity2D\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj",
         "projectName": "ASC Class Library Mandatory Assignment",
-        "projectPath": "C:\\Users\\Will\\Desktop\\Unity Projects\\ASC Mandatory Assignment\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj",
+        "projectPath": "C:\\Users\\Will\\Desktop\\Unity Projects\\Repos\\Unity2D\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\ASC Class Library Mandatory Assignment.csproj",
         "packagesPath": "C:\\Users\\Will\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Will\\Desktop\\Unity Projects\\ASC Mandatory Assignment\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\obj\\",
+        "outputPath": "C:\\Users\\Will\\Desktop\\Unity Projects\\Repos\\Unity2D\\ASC-Mandatory-Assignment\\Solution\\ASC Class Library Mandatory Assignment\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -49,10 +49,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

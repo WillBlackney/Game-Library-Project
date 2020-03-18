@@ -7,7 +7,7 @@ namespace Engine.Models
     public class Item
     {
         // Item Effect enum declaration
-        public enum ItemEffect { IncreasePower, IncreaseDefence, IncreaseHealth };
+        public enum ItemEffect { IncreaseStrength, IncreaseDexterity, IncreaseHealth };
 
         // Variables
         #region
@@ -43,5 +43,22 @@ namespace Engine.Models
 
         #endregion
 
+        // Constructors
+        #region
+        // First constructor used by AbilityLibrary to create initial ability data object
+        public Item(string name, ItemEffect effect, int effectValue)
+        {
+            ItemName = name;
+            Effect = effect;
+            EffectValue = effectValue;
+        }
+        // Second constructor used to create an ability from library data. This is the ability used by entities
+        public Item(Item data)
+        {
+            ItemName = data.ItemName;
+            Effect = data.Effect;
+            EffectValue = data.EffectValue;
+        }
+        #endregion
     }
 }

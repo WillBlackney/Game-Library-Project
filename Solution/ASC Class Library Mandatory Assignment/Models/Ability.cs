@@ -37,6 +37,11 @@ namespace Engine.Models
             get { return baseCooldown; }
             set { baseCooldown = value; }
         }
+        public int CurrentCooldown
+        {
+            get { return currentCooldown; }
+            set { currentCooldown = value; }
+        }
         public int Range
         {
             get { return range; }
@@ -60,7 +65,9 @@ namespace Engine.Models
         #endregion
 
         // Constructors
-        public Ability(string abilityName, int actionPointCost, int baseCooldown, int range, 
+        #region
+        // First constructor used by ItemLibrary to create initial ability data object
+        public Ability(string abilityName, int actionPointCost, int baseCooldown, int range,
             int primaryValue, int secondaryValue, TargettingOptions validTargets)
         {
             AbilityName = abilityName;
@@ -72,5 +79,18 @@ namespace Engine.Models
             SecondaryValue = secondaryValue;
             ValidTargets = validTargets;
         }
+        // Second constructor used to create an item from library data. This is the item that is placed in the world
+        public Ability(Ability data)
+        {
+            AbilityName = data.AbilityName;
+            ActionPointCost = data.ActionPointCost;
+            BaseCooldown = data.BaseCooldown;
+            currentCooldown = 0;
+            Range = data.Range;
+            PrimaryValue = data.PrimaryValue;
+            SecondaryValue = data.SecondaryValue;
+            ValidTargets = data.ValidTargets;
+        }
+        #endregion
     }
 }

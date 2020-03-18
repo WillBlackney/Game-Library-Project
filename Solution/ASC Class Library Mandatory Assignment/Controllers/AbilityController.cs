@@ -140,10 +140,12 @@ namespace Engine.Controllers
         {
             // Create a duplicate ability from the ability data in ability library
             // DONT USE THE ABILITY IN THE LIBRARY
+
+            // Get ability data
             Ability data = AbilityLibrary.GetAbilityByName(abilityName);
 
-            Ability newAbility = new Ability(data.AbilityName, data.ActionPointCost, data.BaseCooldown,
-                data.Range, data.PrimaryValue, data.SecondaryValue, data.ValidTargets);
+            // Create a duplicate ability from data
+            Ability newAbility = new Ability(data);
 
             entity.MyAbilities.Add(newAbility);
 
@@ -184,5 +186,72 @@ namespace Engine.Controllers
             TeachAbilityToLivingEntity(entity, "Heal");
         }
         #endregion
+
+        // Ability usage
+        #region
+        public static void OnAbilityUsed(LivingEntity entity, Ability ability)
+        {
+            // Pay for action point cost
+            entity.CurrentActionPoints -= ability.ActionPointCost;
+
+            // Set on cooldown
+            ability.CurrentCooldown = ability.BaseCooldown;
+        }
+        public static void PerformAbility(LivingEntity caster, Ability abilityUsed, LivingEntity target = null, Tile targetTile = null)
+        {
+            // Perform ability based on its name
+            if(abilityUsed.AbilityName == "Move")
+            {
+                PerformMove(caster, targetTile);
+            }
+            else if (abilityUsed.AbilityName == "Strike")
+            {
+                PerformStrike(caster, target, abilityUsed);
+            }
+            else if (abilityUsed.AbilityName == "Shoot")
+            {
+                PerformShoot(caster, target, abilityUsed);
+            }
+            else if (abilityUsed.AbilityName == "Heal")
+            {
+                PerformHeal(target, abilityUsed);
+            }
+
+            // Resolve ability action (pay action point cost, set ability on cooldown, etc)
+            OnAbilityUsed(caster, abilityUsed);
+
+        }
+        #endregion
+
+        // Perform specific abilities logic
+        #region
+        public static void PerformMove(LivingEntity caster, Tile destination)
+        {
+            MovementLogic.MoveEntity(caster, destination);
+        }
+        public static void PerformStrike(LivingEntity caster, LivingEntity target, Ability abilityUsed)
+        {
+            // Calculate the damage
+            int damageValue = CombatLogic.CalculateDamageValue(caster, target, abilityUsed.PrimaryValue);
+
+            // Create damage event
+            CombatLogic.HandleDamage(target, damageValue);
+        }
+        public static void PerformShoot(LivingEntity caster, LivingEntity target, Ability abilityUsed)
+        {
+            // Calculate the damage
+            int damageValue = CombatLogic.CalculateDamageValue(caster, target, abilityUsed.PrimaryValue);
+
+            // Create damage event
+            CombatLogic.HandleDamage(target, damageValue);
+        }
+        public static void PerformHeal(LivingEntity target, Ability abilityUsed)
+        {
+            // Modify health
+            LivingEntityController.ModifyEntityCurrentHealth(target, abilityUsed.PrimaryValue);
+
+        }
+        #endregion
+
     }
 }

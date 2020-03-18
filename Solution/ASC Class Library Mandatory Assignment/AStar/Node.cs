@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Engine.Models;
 
-namespace Engine.AStar
+namespace Engine.AStarPathfinding
 {
     public class Node
     {

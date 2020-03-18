@@ -6,7 +6,7 @@ using Engine.Models;
 using Engine.Controllers;
 
 
-namespace Engine.AStar
+namespace Engine.AStarPathfinding
 {
     public static class AStar
     {
@@ -56,7 +56,7 @@ namespace Engine.AStar
                         Point neighbourPos = new Point(currentNode.GridPosition.X - x, currentNode.GridPosition.Y - y);
                         Tile tile = WorldController.GetTileFromPointReference(neighbourPos, world);
 
-                        if (WorldController.InBounds(neighbourPos, world) && //tile.IsWalkable && tile.IsEmpty && 
+                        if (WorldController.IsPointInBounds(neighbourPos, world) && //tile.IsWalkable && tile.IsEmpty && 
                             neighbourPos != currentNode.GridPosition)
                         {
                             int gCost = 0;

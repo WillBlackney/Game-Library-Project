@@ -12,8 +12,12 @@ namespace Engine.Models
         private string myClass;
         private int mobility;
         private int initiative;
+        private int maximumActionPoints;
+        private int strength;
+        private int dexterity;
         private int currentTurnOrderRoll;
         private int currentActionPoints;
+        private bool hasAlreadyActivated;
         private Tile position;
         private List<Ability> myAbilities;
         private Player myPlayer;
@@ -37,10 +41,25 @@ namespace Engine.Models
             get { return initiative; }
             set { initiative = value; }
         }
+        public int Strength
+        {
+            get { return strength; }
+            set { strength = value; }
+        }
+        public int Dexterity
+        {
+            get { return dexterity; }
+            set { dexterity = value; }
+        }
         public int CurrentActionPoints
         {
             get { return currentActionPoints; }
             set { currentActionPoints = value; }
+        }
+        public int MaximumActionPoints
+        {
+            get { return maximumActionPoints; }
+            set { maximumActionPoints = value; }
         }
         public int CurrentTurnOrderRoll
         {
@@ -66,6 +85,11 @@ namespace Engine.Models
         {
             get { return myPlayer; }
             set { myPlayer = value; }
+        }
+        public bool HasAlreadyActivated
+        {
+            get { return hasAlreadyActivated; }
+            set { hasAlreadyActivated = value; }
         }
         #endregion
 

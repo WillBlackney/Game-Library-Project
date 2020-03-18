@@ -9,7 +9,7 @@ namespace Engine.Libraries
     {
         public static List<Item> allItems;
 
-        public static Item GetItemByName(string name)
+        public static Item GetItemDataByName(string name)
         {
             Item itemReturned = null;
 
@@ -28,6 +28,21 @@ namespace Engine.Libraries
             }
 
             return itemReturned;
+        }
+        public static Item GetRandomItemData()
+        {
+            Item itemReturned = null;
+
+            itemReturned = allItems[new Random().Next(0, allItems.Count)];
+
+            if(itemReturned == null)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                return itemReturned;
+            }
         }
     }
 }
