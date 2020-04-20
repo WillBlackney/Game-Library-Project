@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Engine.Models;
+using Engine.Factories;
 
 namespace Engine.Controllers
 {
@@ -16,7 +17,7 @@ namespace Engine.Controllers
         #region
         public static LivingEntity CreateLivingEntity(string className, Tile startPosition, Player owner)
         {
-            LivingEntity entity = new LivingEntity();
+            LivingEntity entity = LivingEntityFactory.CreateLivingEntity();
             SetEntityPlayerOwner(entity, owner);
             AddEntityToAllEntitiesList(entity);
             PlaceEntityAtLocation(entity, startPosition);

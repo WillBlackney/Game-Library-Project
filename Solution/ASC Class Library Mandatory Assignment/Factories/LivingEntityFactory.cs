@@ -14,7 +14,13 @@ namespace Engine.Factories
             LivingEntity entity = new LivingEntity(position, player);
             return entity;
         }
+        public static LivingEntity CreateLivingEntity()
+        {
+            LivingEntity entity = new LivingEntity();
+            return entity;
+        }
 
-        
+
+
     }
 }

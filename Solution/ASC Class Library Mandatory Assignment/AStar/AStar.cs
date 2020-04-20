@@ -116,21 +116,18 @@ namespace Engine.AStarPathfinding
         // Prevents entities moving diagonally between two other entities / world objects
         private static bool ConnectedDiagonally(Node currentNode, Node neighbourNode, World world)
         {
-            return true;
-
-            /*
             Point direction = neighbourNode.GridPosition - currentNode.GridPosition;
             Point first = new Point(currentNode.GridPosition.X + direction.X, currentNode.GridPosition.Y);
             Point second = new Point(currentNode.GridPosition.X, currentNode.GridPosition.Y + direction.Y);
 
 
-            if (WorldController.InBounds(first, world) && !WorldController.GetTileFromPointReference(first, world).IsWalkable)
+            if (WorldController.IsPointInBounds(first, world) && !WorldController.GetTileFromPointReference(first, world).IsWalkable)
             {
                 return false;
             }
 
 
-            if (LevelManager.Instance.InBounds(second) && !LevelManager.Instance.GetTileFromPointReference(second).IsWalkable)
+            if (WorldController.IsPointInBounds(second, world) && !WorldController.GetTileFromPointReference(second, world).IsWalkable)
             {
                 return false;
             }
@@ -140,7 +137,7 @@ namespace Engine.AStarPathfinding
             {
                 return true;
             }
-            */
+            
         }
     }
 }

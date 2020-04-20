@@ -189,7 +189,7 @@ namespace Engine.Controllers
 
         // Ability usage
         #region
-        public static void OnAbilityUsed(LivingEntity entity, Ability ability)
+        public static void OnAbilityUsedStart(LivingEntity entity, Ability ability)
         {
             // Pay for action point cost
             entity.CurrentActionPoints -= ability.ActionPointCost;
@@ -197,10 +197,20 @@ namespace Engine.Controllers
             // Set on cooldown
             ability.CurrentCooldown = ability.BaseCooldown;
         }
+        public static void OnAbilityUsedFinished(LivingEntity entity, Ability ability)
+        {
+            // User implementation
+            // this method is called at the end of an ability usage
+            // put ability relevant code here that you want triggered post ability usage
+            // e.g. "After you successfully perform a melee attack, gain 5 health"
+        }
         public static void PerformAbility(LivingEntity caster, Ability abilityUsed, LivingEntity target = null, Tile targetTile = null)
         {
+            // pay action point cost, set ability on cooldown, etc
+            OnAbilityUsedStart(caster, abilityUsed);
+
             // Perform ability based on its name
-            if(abilityUsed.AbilityName == "Move")
+            if (abilityUsed.AbilityName == "Move")
             {
                 PerformMove(caster, targetTile);
             }
@@ -218,7 +228,7 @@ namespace Engine.Controllers
             }
 
             // Resolve ability action (pay action point cost, set ability on cooldown, etc)
-            OnAbilityUsed(caster, abilityUsed);
+            OnAbilityUsedFinished(caster, abilityUsed);
 
         }
         #endregion

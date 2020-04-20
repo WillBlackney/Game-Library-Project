@@ -6,7 +6,7 @@ namespace Engine.Models
 {
     public class Player
     {
-        public enum PlayerType { Human, AI};
+        public enum PlayerType { None, Human, AI};
 
         // Variables
         #region
