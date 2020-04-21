@@ -7,9 +7,23 @@ namespace Engine.Libraries
 {
     public static class AbilityLibrary
     {
+        // Properties
+        #region
         public static List<Ability> allAbilities;
+        public static bool includeBasePackage;
+        #endregion
 
-        public static void PopulateAbilityLibrary()
+        // Initialization + Set up
+        #region
+        public static void InitializeLibrary()
+        {
+            if (includeBasePackage)
+            {
+                PopulateAbilityLibraryWithBasePackage();
+            }
+
+        }
+        public static void PopulateAbilityLibraryWithBasePackage()
         {
             // Move
             allAbilities.Add(
@@ -31,6 +45,10 @@ namespace Engine.Libraries
                 new Ability("Heal", 2, 2, 3, 10, 0, Ability.TargettingOptions.AlliesAndSelf
                 ));
         }
+        #endregion
+
+        // Get Data 
+        #region
         public static Ability GetAbilityByName(string name)
         {
             Ability abilityReturned = null;
@@ -54,5 +72,6 @@ namespace Engine.Libraries
             // return the ability;
             return abilityReturned;
         }
+        #endregion
     }
 }

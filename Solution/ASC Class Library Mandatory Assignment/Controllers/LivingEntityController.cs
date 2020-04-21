@@ -17,7 +17,7 @@ namespace Engine.Controllers
         #region
         public static LivingEntity CreateLivingEntity(string className, Tile startPosition, Player owner)
         {
-            LivingEntity entity = LivingEntityFactory.CreateLivingEntity();
+            LivingEntity entity = LivingEntityFactory.CreateLivingEntity(startPosition, owner);
             SetEntityPlayerOwner(entity, owner);
             AddEntityToAllEntitiesList(entity);
             PlaceEntityAtLocation(entity, startPosition);

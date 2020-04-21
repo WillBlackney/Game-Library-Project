@@ -7,8 +7,29 @@ namespace Engine.Libraries
 {
     public static class ItemLibrary
     {
+        // Properties
+        #region
         public static List<Item> allItems;
+        public static bool includeBasePackage;
+        #endregion
 
+        // Initialization + Setup
+        #region
+        public static void InitializeLibrary()
+        {
+            if (includeBasePackage)
+            {
+                PopulateItemLibraryWithBasePackage();
+            }
+        }
+        public static void PopulateItemLibraryWithBasePackage()
+        {
+            // TO DO: create base items that come with the library here
+        }
+        #endregion
+
+        // Get Data
+        #region
         public static Item GetItemDataByName(string name)
         {
             Item itemReturned = null;
@@ -44,5 +65,6 @@ namespace Engine.Libraries
                 return itemReturned;
             }
         }
+        #endregion
     }
 }

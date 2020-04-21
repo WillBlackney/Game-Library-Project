@@ -36,11 +36,16 @@ namespace Engine.Controllers
                 Tile spawnLocation = WorldController.GetAllValidNewItemLocationTiles(WorldController.currentWorld)
                     [new Random().Next(0, WorldController.GetAllValidNewItemLocationTiles(WorldController.currentWorld).Count)];
 
-                // Create a new random item
-                Item newRandomItem = ItemController.CreateItemFromItemData(ItemLibrary.GetRandomItemData());
+                // Was a valid spawning tile actually found?
+                if (spawnLocation != null)
+                {
+                    // Create a new random item
+                    Item newRandomItem = ItemController.CreateItemFromItemData(ItemLibrary.GetRandomItemData());
 
-                // Place item at the spawn location
-                ItemController.PlaceItemOnTile(spawnLocation, newRandomItem);
+                    // Place item at the spawn location
+                    ItemController.PlaceItemOnTile(spawnLocation, newRandomItem);
+                }
+                
             }
 
         }

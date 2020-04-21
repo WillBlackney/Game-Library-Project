@@ -59,6 +59,11 @@ namespace Engine.Models
             Effect = data.Effect;
             EffectValue = data.EffectValue;
         }
+        // Empty item constructor for JSON
+        public Item()
+        {
+
+        }
         #endregion
     }
 }

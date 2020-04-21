@@ -56,7 +56,7 @@ namespace Engine.AStarPathfinding
                         Point neighbourPos = new Point(currentNode.GridPosition.X - x, currentNode.GridPosition.Y - y);
                         Tile tile = WorldController.GetTileFromPointReference(neighbourPos, world);
 
-                        if (WorldController.IsPointInBounds(neighbourPos, world) && //tile.IsWalkable && tile.IsEmpty && 
+                        if (WorldController.IsPointInBounds(neighbourPos, world) && tile.IsWalkable && tile.IsOccupied() == false &&
                             neighbourPos != currentNode.GridPosition)
                         {
                             int gCost = 0;
